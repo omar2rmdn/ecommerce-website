@@ -1,0 +1,97 @@
+/* styles.module.css */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+.imageWrapper {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+}
+
+.productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* or 'cover' depending on your image style */
+  padding: 10px;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .productImg {
+  transform: scale(1.05); /* Subtle zoom effect */
+}
+
+.body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Pushes button to bottom */
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #333;
+  /* Truncate text if too long */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.currency {
+  font-size: 0.8rem;
+  font-weight: normal;
+  color: #777;
+  margin-left: 2px;
+}
+
+.actions {
+  margin-top: auto; /* Pushes button to the very bottom */
+}
+
+.wishlistBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s;
+  z-index: 2;
+}
+
+.wishlistBtn:hover {
+  background: #ffecec;
+  color: red;
+}

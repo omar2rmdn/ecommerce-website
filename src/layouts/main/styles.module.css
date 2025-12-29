@@ -1,0 +1,9 @@
+.mainContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.wrapper {
+  margin-top: 30px;
+  flex: 1;
+}

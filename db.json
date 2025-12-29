@@ -1,0 +1,92 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "title": "men",
+      "prefix": "men",
+      "img": "https://image.celine.com/493f1cc31ba444fe/original/2W996092L-38NC_1_FW23_M.jpg?im=Resize=(480);AspectCrop=(1,1),xPosition=.5,yPosition=.5"
+    },
+    {
+      "id": 2,
+      "title": "women",
+      "prefix": "women",
+      "img": "https://ofiveegypt.com/cdn/shop/files/np-190954-ww0ww39408-weathered-white-1.jpg?v=1753830994&width=720"
+    },
+    {
+      "id": 3,
+      "title": "kids",
+      "prefix": "kids",
+      "img": "https://m.media-amazon.com/images/I/610kqwAA4zL._AC_SY606_.jpg"
+    },
+    {
+      "id": 4,
+      "title": "baby",
+      "prefix": "baby",
+      "img": "https://m.media-amazon.com/images/I/416h+4LDhpL._AC_.jpg"
+    },
+    {
+      "id": 5,
+      "title": "sport",
+      "prefix": "sport",
+      "img": "https://images-cdn.ubuy.com.eg/67e328d4b69ee2725d63d060-men-workout-long-sleeve-t-shirt-spring.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Regular Fit Jersey top",
+      "price": "249.00",
+      "cat_prefix": "men",
+      "img": "https://image.celine.com/377e80f069847bfa/original/2Y497670Q-38AW_1_WIN22.jpg?im=Resize=(1200);AspectCrop=(1,1),xPosition=.5,yPosition=.5"
+    },
+    {
+      "id": 2,
+      "title": "Regular Fit Jersey top",
+      "price": "229.00",
+      "cat_prefix": "men",
+      "img": "https://ofiveegypt.com/cdn/shop/files/np-214826-allsaints-m037nb-carter-grey-men-jumper-0.jpg?v=1758708017&width=720"
+    },
+    {
+      "id": 3,
+      "title": "Cotton polo shirt",
+      "price": "200.00",
+      "cat_prefix": "men",
+      "img": "https://m.media-amazon.com/images/I/51yR9cIxYPL._AC_SX569_.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Cotton t-shirt",
+      "price": "100.00",
+      "cat_prefix": "women",
+      "img": "https://ofiveegypt.com/cdn/shop/files/np-213990-211936221004-pink-0.jpg?v=1745910497&width=720"
+    },
+    {
+      "id": 5,
+      "title": "Sweatshirt shorts",
+      "price": "300.00",
+      "cat_prefix": "women",
+      "img": "https://solangshop.com/cdn/shop/files/212384_5.jpg?v=1756201904"
+    },
+    {
+      "id": 6,
+      "title": "Velour top",
+      "price": "300.00",
+      "cat_prefix": "kids",
+      "img": "https://m.media-amazon.com/images/I/610kqwAA4zL._AC_SY606_.jpg"
+    },
+    {
+      "id": 9,
+      "title": "Pile all-in-one suit with ears",
+      "price": "500.00",
+      "cat_prefix": "baby",
+      "img": "https://m.media-amazon.com/images/I/61hqKj5344L._AC_SX679_.jpg"
+    },
+    {
+      "id": 17,
+      "title": "Regular Fit football shirt",
+      "price": "449.00",
+      "cat_prefix": "sport",
+      "img": "https://wayupsports.com/cdn/shop/files/918990-703.jpg?v=1738770293&width=800"
+    }
+  ]
+}
