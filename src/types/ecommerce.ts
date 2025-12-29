@@ -16,13 +16,20 @@ export type CategoriesState = {
 export type Product = {
   id?: number;
   title: string;
-  price: string;
+  price: number;
   cat_prefix: string;
+  max: number;
   img: string;
+  quantity?: number;
 };
 
 export type ProductsState = {
   records: Product[];
   loading: LoadingState;
   error: string | null;
+};
+
+export type CartState = {
+  items: { [key: number]: number };
+  productFullInfo: Product[];
 };

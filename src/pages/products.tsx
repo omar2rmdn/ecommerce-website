@@ -6,7 +6,7 @@ import {
   cleanUpProducts,
 } from "@/store/products/products-slice";
 import { getProducts } from "@/store/products/thunk";
-import type { AppDispatch } from "@/store/store";
+import type { AppDispatch, RootState } from "@/store/store";
 import { useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,7 +18,12 @@ const Products = () => {
 
   const dispatch: AppDispatch = useDispatch();
   const { records, error, loading } = useSelector(getAllProducts);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
 
+  const productInfo = records.map((p) => ({
+    ...p,
+    quantity: p.id ? cartItems[p.id] || 0 : 0,
+  }));
   useEffect(() => {
     if (prefix) {
       dispatch(getProducts(prefix));
@@ -33,7 +38,7 @@ const Products = () => {
     <Loading loading={loading} error={error}>
       <Container>
         <GridList
-          records={records}
+          records={productInfo}
           renderItem={(p) => <ProductCard key={p.id} {...p} />}
         />
       </Container>

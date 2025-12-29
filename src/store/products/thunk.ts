@@ -7,9 +7,7 @@ export const getProducts = createAsyncThunk(
   async (prefix: string, thunkAPI) => {
     const { rejectWithValue } = thunkAPI;
     try {
-      const res = await axios.get<Product[]>(
-        `http://localhost:8000/products?cat_prefix=${prefix}`
-      );
+      const res = await axios.get<Product[]>(`/products?cat_prefix=${prefix}`);
       return res.data;
     } catch (error) {
       if (isAxiosError(error)) {

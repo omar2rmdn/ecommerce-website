@@ -1,8 +1,12 @@
+import { getTotalQuantity } from "@/store/cart/selectors";
 import { Container, Nav, Navbar, Badge } from "react-bootstrap";
 import { FaLeaf, FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router";
 
 export default function Header() {
+  const totalQuantity = useSelector(getTotalQuantity);
+
   return (
     <>
       <div className="py-4 border-bottom">
@@ -22,7 +26,7 @@ export default function Header() {
               className="position-absolute top-0 start-100 translate-middle"
               style={{ fontSize: "0.65rem" }}
             >
-              3
+              {totalQuantity}
             </Badge>
           </div>
         </Container>
