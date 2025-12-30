@@ -1,6 +1,7 @@
 import GridList from "@/components/common/grid-list";
 import ProductCard from "@/components/ecommerce/product/product";
 import Loading from "@/components/feedback/loading/loading";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import {
   getAllProducts,
   cleanUpProducts,
@@ -16,9 +17,9 @@ const Products = () => {
   const params = useParams();
   const prefix = params.prefix as string;
 
-  const dispatch: AppDispatch = useDispatch();
-  const { records, error, loading } = useSelector(getAllProducts);
-  const cartItems = useSelector((state: RootState) => state.cart.items);
+  const dispatch = useAppDispatch();
+  const { records, error, loading } = useAppSelector(getAllProducts);
+  const cartItems = useAppSelector((state: RootState) => state.cart.items);
 
   const productInfo = records.map((p) => ({
     ...p,

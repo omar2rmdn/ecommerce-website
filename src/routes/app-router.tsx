@@ -1,5 +1,6 @@
 import MainLayout from "@/layouts/main/MainLayout";
 import About from "@/pages/about";
+import Cart from "@/pages/cart";
 import Categories from "@/pages/categories";
 import Error from "@/pages/error";
 import Home from "@/pages/home";
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
           }
           return true;
         },
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/login",

@@ -30,6 +30,8 @@ export type ProductsState = {
 };
 
 export type CartState = {
-  items: { [key: number]: number };
+  items: { [key: string]: number };
   productFullInfo: Product[];
+  loading: LoadingState;
+  error: null | string;
 };

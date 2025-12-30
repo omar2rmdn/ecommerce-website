@@ -1,11 +1,11 @@
 import { getTotalQuantity } from "@/store/cart/selectors";
+import { useAppSelector } from "@/store/hooks";
 import { Container, Nav, Navbar, Badge } from "react-bootstrap";
 import { FaLeaf, FaShoppingCart } from "react-icons/fa";
-import { useSelector } from "react-redux";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 export default function Header() {
-  const totalQuantity = useSelector(getTotalQuantity);
+  const totalQuantity = useAppSelector(getTotalQuantity);
 
   return (
     <>
@@ -18,7 +18,11 @@ export default function Header() {
           </div>
 
           {/* Cart Icon */}
-          <div className="position-relative" style={{ cursor: "pointer" }}>
+          <Link
+            to={"/cart"}
+            className="position-relative"
+            style={{ cursor: "pointer" }}
+          >
             <FaShoppingCart size={24} color="#333" />
             <Badge
               bg="danger"
@@ -28,7 +32,7 @@ export default function Header() {
             >
               {totalQuantity}
             </Badge>
-          </div>
+          </Link>
         </Container>
       </div>
 
