@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import categories from "./categories/categories-slice";
 import products from "./products/products-slice";
 import cart from "./cart/cart-slice";
+import wishlist from "./wishlist/wishlist-slice";
 import {
   persistStore,
   persistReducer,
@@ -20,10 +21,17 @@ const cartPersistConfig = {
   whitelist: ["items"],
 };
 
+const wishlistPersistConfig = {
+  key: "wishlist",
+  storage,
+  whitelist: ["itemsId"],
+};
+
 const rootReducer = combineReducers({
   categories,
   products,
   cart: persistReducer(cartPersistConfig, cart),
+  wishlist: persistReducer(wishlistPersistConfig, wishlist),
 });
 
 export const store = configureStore({

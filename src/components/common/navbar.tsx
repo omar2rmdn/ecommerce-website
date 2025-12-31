@@ -1,7 +1,7 @@
 import { getTotalQuantity } from "@/store/cart/selectors";
 import { useAppSelector } from "@/store/hooks";
 import { Container, Nav, Navbar, Badge } from "react-bootstrap";
-import { FaLeaf, FaShoppingCart } from "react-icons/fa";
+import { FaHeart, FaLeaf, FaShoppingCart } from "react-icons/fa";
 import { Link, NavLink } from "react-router";
 
 export default function Header() {
@@ -17,22 +17,46 @@ export default function Header() {
             <span className="fs-5 fw-bold">Web Store</span>
           </div>
 
-          {/* Cart Icon */}
-          <Link
-            to={"/cart"}
-            className="position-relative"
-            style={{ cursor: "pointer" }}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 15,
+            }}
           >
-            <FaShoppingCart size={24} color="#333" />
-            <Badge
-              bg="danger"
-              pill
-              className="position-absolute top-0 start-100 translate-middle"
-              style={{ fontSize: "0.65rem" }}
+            {/* Wishlist Link */}
+            <Link
+              to={"/wishlist"}
+              className="d-flex align-items-center text-decoration-none text-dark"
+              style={{ gap: "8px" }}
             >
-              {totalQuantity}
-            </Badge>
-          </Link>
+              <FaHeart size={22} color="red" />
+              <p className="mb-0">Wish List</p>
+            </Link>
+
+            {/* Separator */}
+            <span className="text-secondary">|</span>
+
+            {/* Cart Link */}
+            <Link
+              to={"/cart"}
+              className="d-flex align-items-center text-decoration-none text-dark"
+              style={{ gap: "8px" }}
+            >
+              <div className="position-relative d-flex">
+                <FaShoppingCart size={24} color="#333" />
+                <Badge
+                  bg="danger"
+                  pill
+                  className="position-absolute top-0 start-100 translate-middle"
+                  style={{ fontSize: "0.65rem" }}
+                >
+                  {totalQuantity}
+                </Badge>
+              </div>
+              <p className="mb-0">Cart</p>
+            </Link>
+          </div>
         </Container>
       </div>
 

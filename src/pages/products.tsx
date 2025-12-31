@@ -7,10 +7,9 @@ import {
   cleanUpProducts,
 } from "@/store/products/products-slice";
 import { getProducts } from "@/store/products/thunk";
-import type { AppDispatch, RootState } from "@/store/store";
+import { getAllwishlist } from "@/store/wishlist/wishlist-slice";
 import { useEffect } from "react";
 import { Container } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
 
 const Products = () => {
@@ -19,11 +18,12 @@ const Products = () => {
 
   const dispatch = useAppDispatch();
   const { records, error, loading } = useAppSelector(getAllProducts);
-  const cartItems = useAppSelector((state: RootState) => state.cart.items);
+  const { itemsId } = useAppSelector(getAllwishlist);
 
   const productInfo = records.map((p) => ({
     ...p,
-    quantity: p.id ? cartItems[p.id] || 0 : 0,
+    quantity: p.id ?? 0,
+    isLiked: itemsId.includes(p.id),
   }));
   useEffect(() => {
     if (prefix) {

@@ -1,5 +1,5 @@
 export type Category = {
-  id?: number;
+  id: number;
   title: string;
   prefix: string;
   img: string;
@@ -14,7 +14,7 @@ export type CategoriesState = {
 };
 
 export type Product = {
-  id?: number;
+  id: number;
   title: string;
   price: number;
   cat_prefix: string;
@@ -31,6 +31,13 @@ export type ProductsState = {
 
 export type CartState = {
   items: { [key: string]: number };
+  productFullInfo: Product[];
+  loading: LoadingState;
+  error: null | string;
+};
+
+export type WishlistState = {
+  itemsId: number[];
   productFullInfo: Product[];
   loading: LoadingState;
   error: null | string;
