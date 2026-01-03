@@ -8,7 +8,7 @@ const Categories = () => {
   const { records, error, loading } = useCategories();
 
   return (
-    <Loading loading={loading} error={error}>
+    <Loading loading={loading} error={error} type="category">
       <Container>
         <GridList
           records={records}

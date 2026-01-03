@@ -8,7 +8,7 @@ const Products = () => {
   const { productInfo, error, loading } = useProducts();
 
   return (
-    <Loading loading={loading} error={error}>
+    <Loading loading={loading} error={error} type="product">
       <Container>
         <GridList
           records={productInfo}
