@@ -1,36 +1,49 @@
+import { lazy, Suspense } from "react";
 import MainLayout from "@/layouts/main/MainLayout";
-import About from "@/pages/about";
-import Cart from "@/pages/cart";
-import Categories from "@/pages/categories";
-import Error from "@/pages/error";
-import Home from "@/pages/home";
-import Login from "@/pages/login";
-import Products from "@/pages/products";
-import Register from "@/pages/register";
-import Wishlist from "@/pages/wishlist";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import { PageLoader } from "@/components/common/page-loader";
+
+// Lazy load all pages
+const Home = lazy(() => import("@/pages/home"));
+const About = lazy(() => import("@/pages/about"));
+const Categories = lazy(() => import("@/pages/categories"));
+const Products = lazy(() => import("@/pages/products"));
+const Cart = lazy(() => import("@/pages/cart"));
+const Wishlist = lazy(() => import("@/pages/wishlist"));
+const Login = lazy(() => import("@/pages/login"));
+const Register = lazy(() => import("@/pages/register"));
+const Error = lazy(() => import("@/pages/error"));
+
+// Wrap component with Suspense
+const withSuspense = (
+  Component: React.LazyExoticComponent<React.ComponentType>
+) => (
+  <Suspense fallback={<PageLoader />}>
+    <Component />
+  </Suspense>
+);
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    errorElement: <Error />,
+    errorElement: withSuspense(Error),
     children: [
       {
         index: true,
-        element: <Home />,
+        element: withSuspense(Home),
       },
       {
         path: "/about",
-        element: <About />,
+        element: withSuspense(About),
       },
       {
         path: "/categories",
-        element: <Categories />,
+        element: withSuspense(Categories),
       },
       {
         path: "/products/:prefix",
-        element: <Products />,
+        element: withSuspense(Products),
         loader: ({ params }) => {
           if (
             typeof params.prefix !== "string" ||
@@ -46,19 +59,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: withSuspense(Cart),
       },
       {
         path: "/wishlist",
-        element: <Wishlist />,
+        element: withSuspense(Wishlist),
       },
       {
         path: "/login",
-        element: <Login />,
+        element: withSuspense(Login),
       },
       {
         path: "/register",
-        element: <Register />,
+        element: withSuspense(Register),
       },
     ],
   },

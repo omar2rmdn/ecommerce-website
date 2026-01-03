@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { CartState } from "src/types/ecommerce";
+import type { CartState } from "@/types/ecommerce";
 import type { RootState } from "../store";
 import { getCart } from "./thunk";
+import { isString } from "@/types/guards";
 
 const initialState: CartState = {
   items: {},
@@ -45,7 +46,7 @@ export const cartSlice = createSlice({
     });
     builder.addCase(getCart.rejected, (state, action) => {
       state.loading = "failed";
-      if (action.payload && typeof action.payload === "string") {
+      if (isString(action.payload)) {
         state.error = action.payload;
       } else {
         state.error = action.error.message || "Unknown Error";

@@ -1,4 +1,4 @@
-import type { Product } from "src/types/ecommerce";
+import type { Product } from "@/types/ecommerce";
 import styles from "./styles.module.css";
 
 type CartSubtotalPriceProps = { products: Product[] };

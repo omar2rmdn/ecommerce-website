@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { CategoriesState } from "src/types/ecommerce";
+import type { CategoriesState } from "@/types/ecommerce";
 import type { RootState } from "../store";
 import { getCategories } from "./thunk";
+import { isString } from "@/types/guards";
 
 const initialState: CategoriesState = {
   records: [],
@@ -25,7 +26,12 @@ export const categoriesSlice = createSlice({
     });
     builder.addCase(getCategories.rejected, (state, action) => {
       state.loading = "failed";
-      state.error = action.payload as string;
+
+      if (isString(action.payload)) {
+        state.error = action.payload;
+      } else {
+        state.error = action.error.message || "Unknown Error";
+      }
     });
   },
 });

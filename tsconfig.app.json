@@ -35,9 +35,9 @@
       "@/store/*": ["src/store/*"],
       "@/styles/*": ["src/styles/*"],
       "@/layouts/*": ["src/layouts/*"],
-      "@/utils/*": ["src/util/*"],
+      "@/utils/*": ["src/utils/*"],
       "@/services/*": ["src/services/*"],
-      "@/types/*": ["src/services/*"]
+      "@/types/*": ["src/types/*"]
     }
   },
   "include": ["src"]

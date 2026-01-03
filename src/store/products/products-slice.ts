@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { ProductsState } from "src/types/ecommerce";
+import type { ProductsState } from "@/types/ecommerce";
 import type { RootState } from "../store";
 import { getProducts } from "./thunk";
+import { isString } from "@/types/guards";
 
 const initialState: ProductsState = {
   records: [],
@@ -13,7 +14,6 @@ export const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    // Logic improvement: Reset state when leaving page
     cleanUpProducts: (state) => {
       state.records = [];
       state.loading = "idle";
@@ -31,7 +31,12 @@ export const productsSlice = createSlice({
     });
     builder.addCase(getProducts.rejected, (state, action) => {
       state.loading = "failed";
-      state.error = action.payload as string;
+
+      if (isString(action.payload)) {
+        state.error = action.payload;
+      } else {
+        state.error = action.error.message || "Unknown Error";
+      }
     });
   },
 });

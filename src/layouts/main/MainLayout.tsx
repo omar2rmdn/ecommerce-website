@@ -1,6 +1,6 @@
 import { Container } from "react-bootstrap";
 import styles from "./styles.module.css";
-import Header from "@/components/common/navbar";
+import Header from "@/components/common/navbar/header";
 import Footer from "@/components/common/footer";
 import { Outlet } from "react-router";
 

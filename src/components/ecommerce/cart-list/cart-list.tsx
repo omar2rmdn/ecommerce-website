@@ -1,4 +1,4 @@
-import type { Product } from "src/types/ecommerce";
+import type { Product } from "@/types/ecommerce";
 import CartItem from "../cart-item/cart-item";
 
 type CartListProps = {

@@ -2,7 +2,7 @@ import { memo, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { addToCart } from "@/store/cart/cart-slice";
 import styles from "./styles.module.css";
-import type { Product } from "src/types/ecommerce";
+import type { Product } from "@/types/ecommerce";
 import LikeBtn from "./like-btn";
 import { useAppDispatch } from "@/store/hooks";
 import { toggleLike } from "@/store/wishlist/thunk";

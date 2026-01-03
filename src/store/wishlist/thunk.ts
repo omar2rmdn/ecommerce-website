@@ -1,18 +1,20 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios, { isAxiosError } from "axios";
-import type { RootState } from "../store";
-import type { Product } from "src/types/ecommerce";
+import axios from "axios";
+import type { Product } from "@/types/ecommerce";
+import { checkAxiosError } from "@/utils/is-axios-error";
 
 const toggleLike = createAsyncThunk(
   "wishlist/toggleLike",
   async (id: number, thunkAPI) => {
-    const { rejectWithValue } = thunkAPI;
+    const { rejectWithValue, signal } = thunkAPI;
     try {
       const recordExist = await axios.get(`/wishlist?userId=1&productId=${id}`);
 
       if (recordExist.data.length > 0) {
         const wishlistItemId = recordExist.data[0].id;
-        await axios.delete(`/wishlist/${wishlistItemId}`);
+        await axios.delete(`/wishlist/${wishlistItemId}`, {
+          signal,
+        });
 
         return { type: "remove", id };
       } else {
@@ -24,11 +26,7 @@ const toggleLike = createAsyncThunk(
         return { type: "add", id };
       }
     } catch (error) {
-      if (isAxiosError(error)) {
-        return rejectWithValue(error.response?.data.message);
-      } else {
-        return rejectWithValue("Unexpected Error");
-      }
+      return rejectWithValue(checkAxiosError(error));
     }
   }
 );
@@ -36,10 +34,7 @@ const toggleLike = createAsyncThunk(
 const getWishlist = createAsyncThunk(
   "wishlist/getWishlist",
   async (_, thunkAPI) => {
-    const { rejectWithValue, getState, fulfillWithValue } = thunkAPI;
-    const { wishlist } = getState() as RootState;
-    const { itemsId } = wishlist;
-
+    const { rejectWithValue, fulfillWithValue } = thunkAPI;
     try {
       const userWishlist = await axios.get<{ productId: number }[]>(
         `/wishlist?userId=1`
@@ -50,18 +45,14 @@ const getWishlist = createAsyncThunk(
       }
 
       const itemsIdFilter = (await userWishlist).data
-        .map((item) => `id=${item}`)
+        .map((item) => `id=${item.productId}`)
         .join("&");
 
       const res = await axios.get<Product[]>(`/products?${itemsIdFilter}`);
 
       return res.data;
     } catch (error) {
-      if (isAxiosError(error)) {
-        return rejectWithValue(error.response?.data.message);
-      } else {
-        return rejectWithValue("Unexpected Error");
-      }
+      return rejectWithValue(checkAxiosError(error));
     }
   }
 );

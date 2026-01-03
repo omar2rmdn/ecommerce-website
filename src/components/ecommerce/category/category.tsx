@@ -1,4 +1,4 @@
-import type { Category } from "src/types/ecommerce";
+import type { Category } from "@/types/ecommerce";
 import styles from "./styles.module.css";
 import { Link } from "react-router";
 const { category, categoryImg, categoryTitle } = styles;

@@ -1,12 +1,10 @@
-import { getTotalQuantity } from "@/store/cart/selectors";
-import { useAppSelector } from "@/store/hooks";
-import { Container, Nav, Navbar, Badge } from "react-bootstrap";
-import { FaHeart, FaLeaf, FaShoppingCart } from "react-icons/fa";
-import { Link, NavLink } from "react-router";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { FaHeart, FaLeaf } from "react-icons/fa";
+import { NavLink } from "react-router";
+import CartBadge from "./cart-badge";
+import HeaderIconItem from "./header-icon-item";
 
-export default function Header() {
-  const totalQuantity = useAppSelector(getTotalQuantity);
-
+const Header = () => {
   return (
     <>
       <div className="py-4 border-bottom">
@@ -25,37 +23,17 @@ export default function Header() {
             }}
           >
             {/* Wishlist Link */}
-            <Link
-              to={"/wishlist"}
-              className="d-flex align-items-center text-decoration-none text-dark"
-              style={{ gap: "8px" }}
-            >
-              <FaHeart size={22} color="red" />
-              <p className="mb-0">Wish List</p>
-            </Link>
+            <HeaderIconItem
+              label="Wish List"
+              icon={<FaHeart size={22} color="red" />}
+              link="/wishlist"
+            />
 
             {/* Separator */}
             <span className="text-secondary">|</span>
 
             {/* Cart Link */}
-            <Link
-              to={"/cart"}
-              className="d-flex align-items-center text-decoration-none text-dark"
-              style={{ gap: "8px" }}
-            >
-              <div className="position-relative d-flex">
-                <FaShoppingCart size={24} color="#333" />
-                <Badge
-                  bg="danger"
-                  pill
-                  className="position-absolute top-0 start-100 translate-middle"
-                  style={{ fontSize: "0.65rem" }}
-                >
-                  {totalQuantity}
-                </Badge>
-              </div>
-              <p className="mb-0">Cart</p>
-            </Link>
+            <HeaderIconItem label="Cart" icon={<CartBadge />} link="/cart" />
           </div>
         </Container>
       </div>
@@ -86,4 +64,6 @@ export default function Header() {
       </Navbar>
     </>
   );
-}
+};
+
+export default Header;

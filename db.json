@@ -37,7 +37,7 @@
       "title": "Regular Fit Jersey top",
       "price": 249,
       "cat_prefix": "men",
-      "max": 3,
+      "max": 10,
       "img": "https://image.celine.com/377e80f069847bfa/original/2Y497670Q-38AW_1_WIN22.jpg?im=Resize=(1200);AspectCrop=(1,1),xPosition=.5,yPosition=.5"
     },
     {
@@ -45,7 +45,7 @@
       "title": "Regular Fit Jersey top",
       "price": 229,
       "cat_prefix": "men",
-      "max": 3,
+      "max": 10,
       "img": "https://ofiveegypt.com/cdn/shop/files/np-214826-allsaints-m037nb-carter-grey-men-jumper-0.jpg?v=1758708017&width=720"
     },
     {
@@ -53,7 +53,7 @@
       "title": "Cotton polo shirt",
       "price": 200,
       "cat_prefix": "men",
-      "max": 3,
+      "max": 10,
       "img": "https://m.media-amazon.com/images/I/51yR9cIxYPL._AC_SX569_.jpg"
     },
     {
@@ -61,7 +61,7 @@
       "title": "Cotton t-shirt",
       "price": 100,
       "cat_prefix": "women",
-      "max": 3,
+      "max": 10,
       "img": "https://ofiveegypt.com/cdn/shop/files/np-213990-211936221004-pink-0.jpg?v=1745910497&width=720"
     },
     {
@@ -69,7 +69,7 @@
       "title": "Sweatshirt shorts",
       "price": 300,
       "cat_prefix": "women",
-      "max": 3,
+      "max": 10,
       "img": "https://solangshop.com/cdn/shop/files/212384_5.jpg?v=1756201904"
     },
     {
@@ -77,7 +77,7 @@
       "title": "Velour top",
       "price": 300,
       "cat_prefix": "kids",
-      "max": 3,
+      "max": 10,
       "img": "https://m.media-amazon.com/images/I/610kqwAA4zL._AC_SY606_.jpg"
     },
     {
@@ -85,7 +85,7 @@
       "title": "Pile all-in-one suit with ears",
       "price": 500,
       "cat_prefix": "baby",
-      "max": 3,
+      "max": 10,
       "img": "https://m.media-amazon.com/images/I/61hqKj5344L._AC_SX679_.jpg"
     },
     {
@@ -93,9 +93,15 @@
       "title": "Regular Fit football shirt",
       "price": 449,
       "cat_prefix": "sport",
-      "max": 3,
+      "max": 10,
       "img": "https://wayupsports.com/cdn/shop/files/918990-703.jpg?v=1738770293&width=800"
     }
   ],
-  "wishlist": []
+  "wishlist": [
+    {
+      "id": "a15a",
+      "userId": "1",
+      "productId": "1"
+    }
+  ]
 }
