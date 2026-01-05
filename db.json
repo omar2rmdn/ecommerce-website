@@ -103,5 +103,10 @@
       "userId": "1",
       "productId": "1"
     }
+  ],
+  "users": [
+    {
+      "email": "omar@gmail.com"
+    }
   ]
 }
